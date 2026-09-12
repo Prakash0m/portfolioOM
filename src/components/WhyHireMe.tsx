@@ -1,51 +1,55 @@
 import { motion } from 'framer-motion';
-import { Code, TrendingUp, DollarSign, MessageSquare, Award, CheckCircle } from 'lucide-react';
+import { Code, TrendingUp, DollarSign, MessageSquare, CheckCircle } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-// Map icon name to Lucide components
 const getHireIcon = (iconName: string) => {
   switch (iconName) {
     case 'Code':
-      return <Code className="text-brand-blue" size={20} />;
+      return <Code className="text-emerald-600" size={20} />;
     case 'TrendingUp':
-      return <TrendingUp className="text-brand-purple" size={20} />;
+      return <TrendingUp className="text-blue-600" size={20} />;
     case 'DollarSign':
-      return <DollarSign className="text-brand-cyan" size={20} />;
+      return <DollarSign className="text-emerald-600" size={20} />;
     case 'MessageSquare':
-      return <MessageSquare className="text-brand-blue" size={20} />;
+      return <MessageSquare className="text-blue-600" size={20} />;
     default:
-      return <Code className="text-brand-blue" size={20} />;
+      return <Code className="text-emerald-600" size={20} />;
   }
+};
+
+const getHireBg = (iconName: string) => {
+  return ['TrendingUp', 'MessageSquare'].includes(iconName)
+    ? 'bg-blue-50 border-blue-100'
+    : 'bg-emerald-50 border-emerald-100';
 };
 
 export default function WhyHireMe() {
   const { whyHireMe, achievements } = portfolioData;
 
   return (
-    <section id="why-hire-me" className="py-24 relative overflow-hidden bg-zinc-950">
-      {/* Decorative Glow */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-brand-purple/5 rounded-full blur-3xl"></div>
+    <section id="why-hire-me" className="py-24 relative overflow-hidden bg-white/60">
+      {/* Decorative ambient background */}
+      <div className="absolute top-1/3 -right-32 w-96 h-96 bg-emerald-50/70 rounded-full blur-3xl pointer-events-none -z-0"></div>
+      <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-blue-50/60 rounded-full blur-3xl pointer-events-none -z-0"></div>
+      <div className="absolute inset-0 bg-dot-pattern opacity-40 pointer-events-none -z-0"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Value Proposition & Achievements</h2>
-          <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base">
-            What makes me unique is the intersection of deep software development skills, real business leadership, and financial logic.
-          </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-brand-blue via-brand-purple to-brand-cyan mx-auto rounded-full mt-4"></div>
+        <div className="text-left md:text-center mb-16">
+          <span className="text-xs font-bold tracking-widest uppercase text-emerald-600 block mb-2">
+            Value Proposition
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+            Why Work With Me?
+          </h2>
+          <div className="w-12 h-1 bg-emerald-500 rounded-full md:mx-auto mt-4"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Why Hire Me Cards */}
-          <div className="lg:col-span-7 space-y-6">
-            <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-              <span className="w-2 h-6 bg-brand-cyan rounded-full mr-3"></span>
-              Why Hire Me?
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="lg:col-span-7 space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {whyHireMe.map((item, idx) => (
                 <motion.div
                   key={item.title}
@@ -53,15 +57,15 @@ export default function WhyHireMe() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.05, duration: 0.5 }}
-                  className="p-5 rounded-xl glass hover:border-zinc-800 transition-colors flex flex-col h-full"
+                  className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-emerald-200 transition-all flex flex-col h-full"
                 >
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center">
+                  <div className="flex items-center space-x-3.5 mb-3.5">
+                    <div className={`w-10 h-10 rounded-xl border flex items-center justify-center ${getHireBg(item.icon)}`}>
                       {getHireIcon(item.icon)}
                     </div>
-                    <h4 className="text-base font-bold text-white">{item.title}</h4>
+                    <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
                   </div>
-                  <p className="text-zinc-400 text-sm leading-relaxed flex-grow">
+                  <p className="text-slate-600 text-sm leading-relaxed flex-grow">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -71,16 +75,13 @@ export default function WhyHireMe() {
 
           {/* Right Column: Achievements & Proof points */}
           <div className="lg:col-span-5">
-            <div className="p-6 md:p-8 rounded-2xl glass-premium relative overflow-hidden">
-              {/* Background ambient gradient */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-cyan/15 rounded-full blur-2xl"></div>
-              
-              <h3 className="text-2xl font-bold text-white mb-8 flex items-center relative z-10">
-                <span className="w-2 h-6 bg-brand-purple rounded-full mr-3"></span>
-                Key Achievements
+            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 relative overflow-hidden shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
+                <span className="w-2 h-6 bg-emerald-500 rounded-full mr-3"></span>
+                Key Milestones & Achievements
               </h3>
 
-              <div className="space-y-4 relative z-10">
+              <div className="space-y-3.5">
                 {achievements.map((achievement, idx) => (
                   <motion.div
                     key={idx}
@@ -88,19 +89,14 @@ export default function WhyHireMe() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.06, duration: 0.4 }}
-                    className="flex items-start space-x-3 p-3 rounded-lg bg-zinc-900/30 border border-zinc-900/50 hover:border-zinc-800 transition-all"
+                    className="flex items-start space-x-3 p-3.5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs hover:border-emerald-200 transition-all"
                   >
-                    <CheckCircle size={18} className="text-brand-cyan mt-0.5 flex-shrink-0" />
-                    <span className="text-zinc-300 text-sm md:text-base font-medium">
+                    <CheckCircle size={18} className="text-emerald-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-slate-700 text-sm font-semibold">
                       {achievement}
                     </span>
                   </motion.div>
                 ))}
-              </div>
-              
-              {/* Medal award decoration */}
-              <div className="absolute -bottom-6 -right-6 text-brand-purple/10 transform rotate-12">
-                <Award size={120} />
               </div>
             </div>
           </div>

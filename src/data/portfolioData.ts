@@ -6,6 +6,8 @@ export interface Project {
   link?: string;
   github?: string;
   category: 'react' | 'django' | 'fullstack' | 'business' | 'other';
+  featured?: boolean;
+  badge?: string;
 }
 
 export interface Experience {
@@ -13,12 +15,15 @@ export interface Experience {
   company: string;
   location?: string;
   duration: string;
+  website?: string;
   responsibilities: string[];
 }
 
 export interface Education {
   degree: string;
   institution: string;
+  university?: string;
+  universityLogo?: string;
   location?: string;
   duration: string;
   status?: string;
@@ -27,7 +32,12 @@ export interface Education {
 
 export interface SkillCategory {
   name: string;
-  skills: { name: string; level: number }[]; // level out of 100 for visual indicators
+  skills: { name: string; level: number }[];
+}
+
+export interface Language {
+  language: string;
+  proficiency: string;
 }
 
 export interface PortfolioData {
@@ -41,6 +51,7 @@ export interface PortfolioData {
     email: string;
     whatsapp: string;
     resumeUrl: string;
+    portfolioUrl: string;
     socials: {
       github: string;
       linkedin: string;
@@ -52,6 +63,8 @@ export interface PortfolioData {
   education: Education[];
   experience: Experience[];
   skills: SkillCategory[];
+  professionalSkills: string[];
+  languages: Language[];
   projects: Project[];
   services: { title: string; description: string }[];
   achievements: string[];
@@ -60,260 +73,299 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   personalInfo: {
-    name: "OM PRAKASH SHARMA",
+    name: "Om Prakash Sharma",
     titles: [
-      "Full Stack Python Developer",
-      "Software Engineer",
-      "Chief Marketing Officer"
+      "IT Officer",
+      "Website Management Specialist",
+      "Digital Marketing Professional",
+      "IT Support Specialist"
     ],
-    bioSummary: "Building Modern Web Applications with Python, Django, React & AI.",
-    bioDetailed: "I am Om Prakash Sharma, a passionate Full Stack Python Developer and Software Engineer from Nepal with strong expertise in Python, Django, Django REST Framework, React.js, JavaScript, HTML, CSS, Tailwind CSS, MySQL, PostgreSQL, REST APIs, and modern web technologies.\n\nAlongside software development, I have practical experience in accounting, digital marketing, business development, and leadership. Currently, I am working as the Chief Marketing Officer (CMO) at Kreativemandu Technologies, where I lead marketing strategies, branding, and business growth initiatives.\n\nMy goal is to build scalable software solutions, contribute to innovative technology companies, and continuously expand my expertise in software engineering and AI-driven applications.",
+    bioSummary: "IT and Digital Marketing professional with hands-on experience in IT operations, website management, and social media marketing across service and technology organizations.",
+    bioDetailed: "IT and Digital Marketing professional with hands-on experience in IT operations, website management, and social media marketing across service and technology organizations. Currently working as IT Officer at IEC Group Nepal, handling IT support, website management, and digital marketing.\n\nSkilled in maintaining websites, resolving technical issues, and planning digital campaigns, with a technical background in web technologies and strong client communication. Currently completing a Bachelor of Information Technology (BIT) alongside a completed Bachelor of Business Studies (BBS).",
     location: "Lokanthali, Bhaktapur, Nepal",
-    phone: "+977-9808677897",
+    phone: "9808677897",
     email: "omprakash099507@gmail.com",
     whatsapp: "+9779808677897",
-    resumeUrl: "/resume.pdf", // Point directly to the copied PDF file
+    resumeUrl: "/resume.pdf",
+    portfolioUrl: "https://portfolio-om-nine.vercel.app",
     socials: {
       github: "https://github.com/Prakash0m",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://linkedin.com/in/prakashomsharma",
       facebook: "https://www.facebook.com/sharmaprakashom",
       instagram: "https://instagram.com",
       whatsapp: "https://wa.me/9779808677897"
     }
   },
+  experience: [
+    {
+      role: "IT Officer — Marketing & Website Handling",
+      company: "IEC Group Nepal",
+      website: "iecgroupnepal.com",
+      duration: "January 2026 – Present",
+      responsibilities: [
+        "Handle IT support and day-to-day technical operations, managing the organization's website and digital marketing activities.",
+        "Manage website updates and monitoring while planning and coordinating social media and digital marketing campaigns."
+      ]
+    },
+    {
+      role: "Marketing Officer",
+      company: "Kreativemandu Technologies Pvt. Ltd.",
+      website: "https://www.kreativemandu.com/",
+      location: "Kathmandu",
+      duration: "Until December 2025",
+      responsibilities: [
+        "Managed digital marketing activities and online brand promotion, planning and coordinating social media campaigns.",
+        "Supported website-related activities, SEO, and online visibility, communicating with clients on digital marketing needs."
+      ]
+    },
+    {
+      role: "IT Officer — Digital Marketing / Website Handling",
+      company: "Sharon Manpower Service",
+      website: "https://sharonhrservices.com/",
+      location: "Chakrapath / Maharajgunj, Kathmandu",
+      duration: "2024 – 2025",
+      responsibilities: [
+        "Managed day-to-day IT operations and website maintenance.",
+        "Managed social media platforms and digital marketing campaigns."
+      ]
+    },
+    {
+      role: "IT Officer — Website Handling / Social Media",
+      company: "Frontline Requirement",
+      website: "https://frontlinerecruitment.ai/en",
+      location: "Sinnamangal, Kathmandu",
+      duration: "6 Months",
+      responsibilities: [
+        "Managed website content, updates, and social media pages, providing basic IT support and maintaining digital records."
+      ]
+    }
+  ],
   education: [
     {
       degree: "Bachelor of Information Technology (BIT)",
       institution: "Texas College of Management & IT",
-      location: "Kathmandu, Nepal (Affiliated with Lincoln University College, Malaysia)",
-      duration: "2022 – November 2026 (Running)",
-      status: "8th Semester Running (CGPA: 3.20 Expected)",
-      details: "Expected Graduation: November 2026"
+      university: "Lincoln University College",
+      universityLogo: "lincoln",
+      location: "Sifal, Kathmandu",
+      duration: "Expected Nov 2026",
+      status: "8th Semester",
+      details: "Affiliated with Lincoln University College. Comprehensive study in IT systems, software engineering, databases, and network administration."
     },
     {
       degree: "Bachelor of Business Studies (BBS)",
-      institution: "Danfe College, Putalisadak, Kathmandu",
-      location: "Kathmandu, Nepal (Affiliated to Tribhuvan University (TU))",
-      duration: "2020 – 2024",
-      status: "Completed",
-      details: "Completed"
-    },
-    {
-      degree: "Intermediate (+2)",
-      institution: "Sirjana E.B. Secondary School, Rajbiraj, Saptari",
-      location: "Saptari, Nepal (National Examination Board)",
-      duration: "Completed (2021)",
-      status: "GPA: 2.69",
-      details: "Major: Accountancy, Economics, Business Mathematics, Computer Science, and English"
-    },
-    {
-      degree: "School Leaving Certificate (SLC)",
-      institution: "Uday Jalpadevi Ma Vi Secondary School, Nuwakot",
-      location: "Nuwakot, Nepal (National Examination Board)",
-      duration: "Completed (2018)",
-      status: "GPA: 2.15",
-      details: "School Leaving Certificate (SEE)"
-    }
-  ],
-  experience: [
-    {
-      role: "Chief Marketing Officer (CMO)",
-      company: "Kreativemandu Technologies Pvt. Ltd.",
-      duration: "Present",
-      responsibilities: [
-        "Marketing Strategy formulation and execution",
-        "Business Development and client communication",
-        "Digital branding and social media growth initiatives",
-        "Website consultation and technical requirement mapping"
-      ]
-    },
-    {
-      role: "Full Stack Web Developer",
-      company: "Frontline Recruitment",
-      duration: "Contract",
-      responsibilities: [
-        "Designed and developed frontlinerecruitment.ai",
-        "Frontend Development, Backend Development and UI/UX",
-        "API integration and Database Design"
-      ]
-    },
-    {
-      role: "Python / Django Developer Intern",
-      company: "Vacker360",
-      duration: "3 Months",
-      responsibilities: [
-        "Django backend development and REST API creation",
-        "Bug fixing and database management",
-        "Team collaboration and version control"
-      ]
-    },
-    {
-      role: "Accounting Officer",
-      company: "Sharon Manpower Service KTM",
-      duration: "1+ Years",
-      responsibilities: [
-        "Financial record keeping and daily accounting",
-        "Billing and inventory management",
-        "Daily reporting to senior management"
-      ]
+      institution: "Danfe College",
+      university: "Tribhuvan University (TU)",
+      universityLogo: "tu",
+      location: "Putalisadak, Kathmandu",
+      duration: "Completed 2024",
+      status: "Completed (54.30%)",
+      details: "Affiliated with Tribhuvan University (TU). Focus in organizational management, business communication, marketing principles, and financial systems."
     }
   ],
   skills: [
     {
       name: "Programming Languages",
       skills: [
-        { name: "Python", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "HTML5 / CSS3", level: 90 },
-        { name: "SQL", level: 80 },
+        { name: "Python", level: 92 },
+        { name: "JavaScript", level: 86 },
+        { name: "HTML5 / CSS3", level: 92 },
+        { name: "SQL", level: 85 },
         { name: "C++", level: 75 }
       ]
     },
     {
-      name: "Backend Development",
+      name: "Backend & Full Stack (Python)",
       skills: [
-        { name: "Django", level: 90 },
-        { name: "Django REST Framework", level: 85 },
-        { name: "REST APIs", level: 90 },
-        { name: "Authentication (JWT/OAuth)", level: 80 }
+        { name: "Django", level: 92 },
+        { name: "Django REST Framework", level: 88 },
+        { name: "REST APIs", level: 92 },
+        { name: "Authentication (JWT/OAuth)", level: 84 },
+        { name: "Python Automation", level: 88 }
       ]
     },
     {
       name: "Frontend Development",
       skills: [
-        { name: "React.js", level: 85 },
-        { name: "Tailwind CSS", level: 90 },
-        { name: "Bootstrap", level: 75 },
+        { name: "React.js", level: 88 },
+        { name: "Tailwind CSS", level: 92 },
+        { name: "Bootstrap", level: 78 },
         { name: "Responsive UI/UX", level: 90 }
       ]
     },
     {
       name: "Database Systems",
       skills: [
-        { name: "MySQL", level: 85 },
-        { name: "PostgreSQL", level: 80 },
+        { name: "MySQL", level: 88 },
+        { name: "PostgreSQL", level: 85 },
         { name: "SQLite", level: 85 }
       ]
     },
     {
-      name: "Tools & DevOps",
+      name: "IT Operations & Support",
       skills: [
-        { name: "Git & GitHub", level: 88 },
-        { name: "VS Code", level: 90 },
-        { name: "Docker", level: 70 },
-        { name: "Vercel / Netlify", level: 80 },
-        { name: "Figma / Canva", level: 75 }
+        { name: "IT Operations", level: 95 },
+        { name: "Technical Support", level: 95 },
+        { name: "Computer Troubleshooting", level: 92 },
+        { name: "Software Installation & Config", level: 90 },
+        { name: "Network Troubleshooting", level: 88 },
+        { name: "Digital File Management", level: 92 }
       ]
     },
     {
-      name: "Marketing & Business",
+      name: "Digital Marketing & Growth",
       skills: [
-        { name: "SEO Optimization", level: 85 },
-        { name: "Facebook Marketing / Meta Ads", level: 80 },
-        { name: "Digital Branding", level: 85 },
-        { name: "Lead Generation", level: 80 },
-        { name: "Content Marketing", level: 75 }
+        { name: "Social Media Marketing & Mgmt", level: 94 },
+        { name: "Search Engine Optimization (SEO)", level: 90 },
+        { name: "Online Brand Promotion", level: 92 },
+        { name: "Meta Ads & Campaigns", level: 88 },
+        { name: "Lead Generation", level: 88 },
+        { name: "Content Planning & Strategy", level: 90 }
+      ]
+    },
+    {
+      name: "Tools & Platforms",
+      skills: [
+        { name: "Git & GitHub", level: 90 },
+        { name: "VS Code", level: 92 },
+        { name: "Docker", level: 78 },
+        { name: "Vercel / Netlify", level: 85 },
+        { name: "MS Office & Google Workspace", level: 95 },
+        { name: "Canva & CapCut", level: 90 }
       ]
     }
   ],
+  professionalSkills: [
+    "Problem Solving",
+    "Communication",
+    "Client Communication",
+    "Teamwork",
+    "Time Management",
+    "Project Coordination",
+    "Critical Thinking",
+    "Quick Learning",
+    "Adaptability",
+    "Documentation",
+    "Organizational Skills",
+    "Multitasking"
+  ],
+  languages: [
+    { language: "Nepali", proficiency: "Native" },
+    { language: "English", proficiency: "Proficient" },
+    { language: "Hindi", proficiency: "Fluent" }
+  ],
   projects: [
     {
-      title: "Frontline Recruitment",
-      subtitle: "AI Recruitment Platform",
-      description: "An AI-powered recruitment platform designed to streamline hiring processes with interactive elements and REST APIs.",
-      tech: ["React.js", "Python", "Django", "MySQL", "REST API"],
-      link: "https://frontlinerecruitment.ai",
+      title: "Frontline Recruitment AI Platform",
+      subtitle: "Global Recruitment & Talent Platform",
+      description: "Official global AI recruitment and overseas talent acquisition platform providing automated job matching, candidate portal, and operational management.",
+      tech: ["React.js", "AI Recruitment", "Talent Management", "CMS", "SEO"],
+      link: "https://frontlinerecruitment.ai/en",
+      category: "fullstack",
+      featured: true,
+      badge: "Featured Live"
+    },
+    {
+      title: "Kreativemandu Technologies",
+      subtitle: "Digital Agency & Growth Portal",
+      description: "Official digital marketing agency portal driving client brand campaigns, technical SEO, social media growth strategies, and creative web solutions.",
+      tech: ["Digital Marketing", "SEO", "Brand Strategy", "Content Planning", "Analytics"],
+      link: "https://www.kreativemandu.com/",
+      category: "business",
+      featured: true,
+      badge: "Featured Live"
+    },
+    {
+      title: "Sharon HR Services Portal",
+      subtitle: "International Manpower & Operations Hub",
+      description: "Official website and digital operations platform for global HR services, overseas manpower deployment, job listings, and client recruitment management.",
+      tech: ["Web Administration", "SEO", "IT Operations", "Digital Records", "Social Media"],
+      link: "https://sharonhrservices.com/",
+      category: "business",
+      featured: true,
+      badge: "Featured Live"
+    },
+    {
+      title: "IEC Group Digital Portal",
+      subtitle: "Corporate Website & Campaign Hub",
+      description: "Managing website updates, IT operations, and coordinated digital marketing campaigns for IEC Group Nepal.",
+      tech: ["CMS", "Web Administration", "SEO", "Google Workspace", "Meta Ads"],
+      link: "https://iecgroupnepal.com",
+      category: "business",
+      featured: true,
+      badge: "Active Employer"
+    },
+    {
+      title: "Full Stack Web Application",
+      subtitle: "Python & React Architecture",
+      description: "Interactive web application featuring secure user authentication, relational database management, and responsive UI.",
+      tech: ["Python", "Django", "React.js", "PostgreSQL", "Tailwind CSS"],
       category: "fullstack"
     },
     {
-      title: "Ganpati Consultancy",
-      subtitle: "Accounting Firm Website",
-      description: "A fully responsive, professional website for an accounting consultancy firm, showcasing services and contact portal.",
-      tech: ["React.js", "Tailwind CSS", "Framer Motion"],
-      category: "react"
-    },
-    {
-      title: "Pharmacy Website",
-      subtitle: "Business Website",
-      description: "A business website tailored for a pharmacy, offering inventory viewing, business hours, and location mapping.",
-      tech: ["HTML5", "CSS3", "JavaScript"],
-      category: "other"
-    },
-    {
-      title: "E-Commerce Website",
-      subtitle: "Full Stack Store",
-      description: "An online marketplace featuring authentication, cart management, search filters, and an admin dashboard.",
-      tech: ["Python", "Django", "React.js", "PostgreSQL"],
-      category: "fullstack"
-    },
-    {
-      title: "Weather Application",
-      subtitle: "React Project",
-      description: "A sleek dashboard fetching real-time weather analytics and forecasts based on location data.",
-      tech: ["React.js", "Tailwind CSS", "Weather API"],
-      category: "react"
-    },
-    {
-      title: "Personal Portfolio",
-      subtitle: "Interactive Showcase",
-      description: "A premium, Apple-like portfolio displaying developer skills, work experience timeline, and digital marketing services.",
-      tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion"],
-      category: "react"
+      title: "Live Portfolio Showcase",
+      subtitle: "Modern Web Presence",
+      description: "Fast, responsive web portfolio built with React and Vite showcasing career milestones and tech expertise.",
+      tech: ["React.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      link: "https://portfolio-om-nine.vercel.app",
+      github: "https://github.com/Prakash0m",
+      category: "react",
+      featured: true,
+      badge: "Live Portfolio"
     }
   ],
   services: [
     {
-      title: "Website Development",
-      description: "Building fast, premium, and SEO-friendly personal, business, and e-commerce websites."
+      title: "IT Support & Technical Operations",
+      description: "Comprehensive IT support, computer troubleshooting, software installation and configuration, network troubleshooting, and digital file management."
     },
     {
-      title: "ERP & Accounting Software",
-      description: "Custom ERP and finance management systems built to simplify business accounting, billing, and inventory."
+      title: "Website Administration & Maintenance",
+      description: "End-to-end website management, regular content updates, continuous monitoring, performance troubleshooting, and CMS administration."
     },
     {
-      title: "API Development & Integration",
-      description: "Creating secure, scalable REST APIs using Django REST Framework and connecting external services."
+      title: "Website Management & Development",
+      description: "Building, maintaining, and enhancing responsive websites and web applications using HTML, CSS, JavaScript, React.js, Python, and Django."
     },
     {
-      title: "Search Engine Optimization (SEO)",
-      description: "Optimizing sites to rank higher on search engines, driving organic traffic, and improving visibility."
+      title: "Social Media Marketing & Management",
+      description: "Planning and coordinating multi-platform social media campaigns, content strategy, brand promotion, and active audience engagement."
     },
     {
-      title: "Digital Marketing & Branding",
-      description: "Crafting comprehensive Meta ad campaigns, building social media growth, and personal branding strategies."
+      title: "SEO & Online Brand Promotion",
+      description: "Optimizing website SEO, improving search engine rankings, increasing digital visibility, and executing online brand growth initiatives."
     },
     {
-      title: "UI/UX & Graphic Design",
-      description: "Creating premium wireframes in Figma and assets in Canva that visually wow target customers."
+      title: "Lead Generation & Campaign Management",
+      description: "Formulating high-converting digital marketing campaigns, target audience segmentation, and lead generation pipelines for business growth."
     }
   ],
   achievements: [
-    "Successfully developed and launched multiple business websites",
-    "Designed and engineered an AI-powered Recruitment Platform",
-    "Led marketing campaigns resulting in business growth at Kreativemandu",
-    "Over 1+ years managing accounts and financial structures at Sharon Manpower Service KTM",
-    "Expertise in client relations and high-value technical consultancy",
-    "Completed advanced Full Stack Development Training from Dursikshya"
+    "Currently IT Officer at IEC Group Nepal handling IT support, website management, and digital marketing",
+    "Successfully managed digital marketing, SEO, and brand promotion at Kreativemandu Technologies",
+    "Maintained IT operations, website, and social media campaigns at Sharon Manpower Service",
+    "Managed website content, social channels, and digital records at Frontline Requirement",
+    "Completing Bachelor of Information Technology (BIT - 8th Sem) alongside completed Bachelor of Business Studies (BBS)",
+    "Extensive experience in web technologies (HTML, CSS, JS, Python, Django, React.js, MySQL, PostgreSQL)"
   ],
   whyHireMe: [
     {
-      title: "Full Stack Developer",
-      desc: "Proficient in frontend (React) and backend (Django) with clean, maintainable code practices.",
+      title: "IT Operations & Technical Support",
+      desc: "Proven track record in IT operations, computer/network troubleshooting, software installation, and seamless technical administration.",
       icon: "Code"
     },
     {
-      title: "Marketing & Business Growth",
-      desc: "CMO experience leading branding, Meta ads, SEO, and client acquisition strategies.",
+      title: "Website Management & Development",
+      desc: "Experienced in managing websites, CMS administration, and hands-on development using React.js, Python, and Django.",
       icon: "TrendingUp"
     },
     {
-      title: "Financial & Accounting Knowledge",
-      desc: "Practical understanding of billing, inventory, and ledger accounting, perfect for building ERPs.",
+      title: "Digital Marketing & Brand Growth",
+      desc: "Skilled in social media management, SEO optimization, online brand promotion, and campaign lead generation.",
       icon: "DollarSign"
     },
     {
-      title: "Problem Solver & Communicator",
-      desc: "Able to bridge the gap between technical code and business requirements clearly.",
+      title: "Dual Technical & Business Education",
+      desc: "Unique blend of technical information technology acumen (BIT 8th Sem) and business management principles (BBS Graduate).",
       icon: "MessageSquare"
     }
   ]

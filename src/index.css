@@ -1,45 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-dark: #030303;
-  --color-brand-card: rgba(18, 18, 22, 0.6);
-  --color-brand-border: rgba(255, 255, 255, 0.08);
-  --color-brand-blue: #3b82f6;
-  --color-brand-purple: #8b5cf6;
-  --color-brand-cyan: #06b6d4;
+  --color-brand-blue: #2563eb;
+  --color-brand-blue-hover: #1d4ed8;
+  --color-brand-blue-light: #eff6ff;
+  --color-brand-green: #10b981;
+  --color-brand-green-hover: #059669;
+  --color-brand-green-light: #ecfdf5;
+  --color-brand-navy: #0f172a;
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
   --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-glow: pulse-glow 3s infinite;
-  --animate-gradient-shift: gradient-shift 15s ease infinite;
+  --animate-pulse-subtle: pulse-subtle 3s infinite;
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
   }
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.3)); }
-    50% { opacity: 0.8; filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.6)); }
-  }
-  @keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.6; }
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Clean Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: 4px;
+  background: #cbd5e1;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #94a3b8;
 }
 
 /* Smooth Scrolling */
@@ -47,54 +44,127 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom Utilities */
-.glass {
-  background: rgba(15, 15, 20, 0.5);
+body {
+  background-color: #ffffff;
+  color: #1e293b;
+  overflow-x: hidden;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Reference Style - Organic Blob & Dot Matrix Patterns */
+.dot-pattern {
+  background-image: radial-gradient(#10b981 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+.dot-pattern-blue {
+  background-image: radial-gradient(#3b82f6 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+.dot-pattern-slate {
+  background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+/* Modern Subtle Geometric Grid Backgrounds for All Pages */
+.bg-grid-subtle {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-grid-emerald {
+  background-image: 
+    linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.28) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.bg-mesh-glow {
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 60%, rgba(37, 99, 235, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(20, 184, 166, 0.06) 0%, transparent 40%);
+}
+
+/* Glassmorphism Clean Light Style */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-.glass-premium {
-  background: radial-gradient(120% 120% at 50% 10%, rgba(15, 15, 25, 0.7) 0%, rgba(5, 5, 10, 0.9) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.glass-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
 }
 
-.glass-nav {
-  background: rgba(3, 3, 3, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+.glass-card:hover {
+  border-color: #e2e8f0;
+  box-shadow: 0 12px 30px -4px rgba(16, 185, 129, 0.08);
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, #60a5fa 0%, #c084fc 50%, #22d3ee 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 6s linear infinite;
-}
-
-.text-gradient-purple-cyan {
-  background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+/* Text Gradients */
+.text-gradient-green-blue {
+  background: linear-gradient(135deg, #059669 0%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.bg-radial-ambient {
-  background: radial-gradient(circle at 50% -20%, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 100%);
+.text-gradient-blue-green {
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.bg-radial-bottom {
-  background: radial-gradient(circle at 50% 120%, rgba(6, 182, 212, 0.1) 0%, rgba(139, 92, 246, 0.02) 60%, transparent 100%);
+/* Organic Hero Blob Shape */
+.hero-blob {
+  border-radius: 64% 36% 54% 46% / 49% 52% 48% 51%;
+  transition: all 0.5s ease-in-out;
 }
 
-/* Hide default cursor on desktop for custom pointer (if needed, but simple and fast is preferred) */
-body {
-  background-color: #030303;
-  color: #f4f4f5;
-  overflow-x: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+.hero-blob:hover {
+  border-radius: 51% 49% 45% 55% / 54% 46% 54% 46%;
+}
+
+/* Underline Highlight like in reference (Art Director at Figma) */
+.highlight-line {
+  position: relative;
+  display: inline-block;
+}
+.highlight-line::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #d1fae5;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.highlight-line-blue {
+  position: relative;
+  display: inline-block;
+}
+.highlight-line-blue::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #dbeafe;
+  border-radius: 4px;
+  z-index: -1;
 }

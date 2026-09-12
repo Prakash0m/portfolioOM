@@ -1,74 +1,84 @@
 import { motion } from 'framer-motion';
-import { Monitor, FileSpreadsheet, Cpu, Search, Sparkles, Palette } from 'lucide-react';
+import { Monitor, Cpu, Search, Sparkles, Layout, TrendingUp, ArrowRight, Wrench } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 const getServiceIcon = (title: string) => {
   const t = title.toLowerCase();
-  if (t.includes('website') || t.includes('development')) {
-    return <Monitor className="text-brand-blue" size={24} />;
-  } else if (t.includes('erp') || t.includes('accounting') || t.includes('software')) {
-    return <FileSpreadsheet className="text-brand-purple" size={24} />;
-  } else if (t.includes('api')) {
-    return <Cpu className="text-brand-cyan" size={24} />;
-  } else if (t.includes('seo')) {
-    return <Search className="text-brand-blue" size={24} />;
-  } else if (t.includes('marketing') || t.includes('branding')) {
-    return <Sparkles className="text-brand-purple" size={24} />;
-  } else if (t.includes('ui') || t.includes('design') || t.includes('graphic')) {
-    return <Palette className="text-brand-cyan" size={24} />;
+  if (t.includes('support') || t.includes('technical operations')) {
+    return <Wrench className="text-emerald-600" size={24} />;
+  } else if (t.includes('administration') || t.includes('maintenance')) {
+    return <Monitor className="text-blue-600" size={24} />;
+  } else if (t.includes('development') || t.includes('web')) {
+    return <Layout className="text-emerald-600" size={24} />;
+  } else if (t.includes('social media') || t.includes('marketing')) {
+    return <Sparkles className="text-blue-600" size={24} />;
+  } else if (t.includes('seo') || t.includes('brand')) {
+    return <Search className="text-emerald-600" size={24} />;
+  } else if (t.includes('lead generation') || t.includes('campaign')) {
+    return <TrendingUp className="text-blue-600" size={24} />;
   }
-  return <Monitor className="text-brand-blue" size={24} />;
+  return <Cpu className="text-emerald-600" size={24} />;
+};
+
+const getServiceBg = (title: string) => {
+  const t = title.toLowerCase();
+  const isBlue = t.includes('administration') || t.includes('social') || t.includes('lead') || t.includes('campaign');
+  return isBlue ? 'bg-blue-50 border-blue-100' : 'bg-emerald-50 border-emerald-100';
 };
 
 export default function Services() {
   const { services } = portfolioData;
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-zinc-950">
-      {/* Decorative background glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    <section id="services" className="py-24 relative overflow-hidden bg-slate-50/70">
+      {/* Background ambient blurs and dot matrix */}
+      <div className="absolute top-10 left-10 w-96 h-96 bg-emerald-100/35 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-20 right-12 w-32 h-32 dot-pattern opacity-30 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Services Offered</h2>
-          <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base">
-            Professional high-impact services tailored to help businesses build products and grow their digital presence.
-          </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-brand-blue via-brand-purple to-brand-cyan mx-auto rounded-full mt-4"></div>
+        <div className="text-left md:text-center mb-16">
+          <span className="text-xs font-bold tracking-widest uppercase text-emerald-600 block mb-2">
+            Services
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+            What I Offer
+          </h2>
+          <div className="w-12 h-1 bg-emerald-500 rounded-full md:mx-auto mt-4"></div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05, duration: 0.5 }}
-              className="p-6 md:p-8 rounded-2xl glass hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-purple/5"
+              className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_30px_-4px_rgba(16,185,129,0.1)] hover:border-emerald-200 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
             >
               <div>
                 {/* Icon Container */}
-                <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mb-6 group-hover:scale-105 transition-transform ${getServiceBg(service.title)}`}>
                   {getServiceIcon(service.title)}
                 </div>
 
                 {/* Title and description */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-brand-cyan transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-700 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed">
                   {service.description}
                 </p>
               </div>
 
-              {/* Action indicator link */}
-              <div className="mt-8 pt-4 border-t border-zinc-900/50 flex items-center text-xs font-semibold text-brand-purple group-hover:text-brand-cyan transition-colors">
-                <span>Inquire details</span>
-                <span className="ml-1.5 transform group-hover:translate-x-1 transition-transform">→</span>
+              {/* Action indicator */}
+              <div className="mt-8 pt-4 border-t border-slate-100 flex items-center text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
+                <span>Inquire Details</span>
+                <ArrowRight size={14} className="ml-1.5 transform group-hover:translate-x-1.5 transition-transform" />
               </div>
             </motion.div>
           ))}
