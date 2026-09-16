@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Code2 } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
+import profileImg from '../assets/profile.jpg';
+
+const BRAND_ROLES = ['IT Officer', 'Full Stack Developer', 'Digital Marketer'];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +17,13 @@ export default function Navbar() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const roleInterval = setInterval(() => {
+      setCurrentRoleIndex((prev) => (prev + 1) % BRAND_ROLES.length);
+    }, 2400);
+    return () => clearInterval(roleInterval);
   }, []);
 
   const navLinks = [
@@ -32,14 +44,43 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Brand Logo - Clean, Modern Tech Signature */}
-        <a href="#hero" className="flex items-center space-x-2.5 group">
-          <div className="w-8.5 h-8.5 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-emerald-500 text-white flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:shadow-md group-hover:shadow-emerald-500/25 transition-all duration-300">
-            <Code2 size={18} className="text-white group-hover:rotate-6 transition-transform" />
+        {/* Brand Logo - Advanced Avatar with Live Pulse & Animated Role Ticker */}
+        <a href="#hero" className="flex items-center space-x-3 group text-left">
+          <div className="relative flex-shrink-0">
+            <div className="w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500 via-teal-400 to-blue-500 shadow-xs group-hover:shadow-md group-hover:shadow-emerald-500/25 group-hover:scale-105 transition-all duration-300">
+              <img
+                src={profileImg}
+                alt="Om Prakash Sharma"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            {/* Live active dot indicator */}
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full">
+              <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-75"></span>
+            </span>
           </div>
-          <span className="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors">
-            Om Prakash Sharma<span className="text-emerald-500">.</span>
-          </span>
+
+          <div className="flex flex-col">
+            <span className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors leading-tight flex items-center">
+              Om Prakash Sharma
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 ml-1.5 animate-pulse" />
+            </span>
+            <div className="h-4 overflow-hidden flex items-center mt-0.5">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentRoleIndex}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.25 }}
+                  className="text-[10px] sm:text-[11px] font-bold text-emerald-600 tracking-wider uppercase flex items-center"
+                >
+                  <span className="text-slate-400 font-normal mr-1">•</span>
+                  {BRAND_ROLES[currentRoleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+          </div>
         </a>
 
         {/* Desktop Menu */}

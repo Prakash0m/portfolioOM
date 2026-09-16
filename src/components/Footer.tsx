@@ -1,5 +1,6 @@
-import { ArrowUp, Code2 } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import profileImg from '../assets/profile.jpg';
 
 export default function Footer() {
   const { name } = portfolioData.personalInfo;
@@ -15,13 +16,22 @@ export default function Footer() {
         
         {/* Logo & copyright */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <a href="#hero" className="flex items-center space-x-2.5 mb-2.5 group">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-emerald-600 via-teal-500 to-emerald-500 text-white flex items-center justify-center shadow-xs">
-              <Code2 size={15} className="text-white" />
+          <a href="#hero" className="flex items-center space-x-3 mb-2.5 group">
+            <div className="relative w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500 via-teal-400 to-blue-500 flex-shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+              <img
+                src={profileImg}
+                alt="Om Prakash Sharma"
+                className="w-full h-full rounded-full object-cover"
+              />
             </div>
-            <span className="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors">
-              Om Prakash Sharma<span className="text-emerald-500">.</span>
-            </span>
+            <div className="flex flex-col text-left">
+              <span className="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors flex items-center">
+                Om Prakash Sharma<span className="text-emerald-500 ml-0.5">.</span>
+              </span>
+              <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider">
+                IT Officer & Developer
+              </span>
+            </div>
           </a>
           <p className="text-slate-500 text-xs font-medium">
             &copy; {currentYear} {name}. Designed & Built in Nepal.
