@@ -101,6 +101,9 @@ export default function Navbar() {
           <div className="space-y-3 pb-16">
             <a
               href={portfolioData.personalInfo.resumeUrl}
+              download="Om_Prakash_Sharma_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex justify-center items-center w-full py-3.5 rounded-full border border-slate-200 hover:border-slate-300 text-sm font-bold text-slate-700 transition-all bg-slate-50"
             >
               Download CV

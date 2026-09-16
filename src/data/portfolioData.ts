@@ -147,8 +147,8 @@ export const portfolioData: PortfolioData = {
       university: "Lincoln University College",
       universityLogo: "lincoln",
       location: "Sifal, Kathmandu",
-      duration: "Expected Nov 2026",
-      status: "8th Semester",
+      duration: "Completed",
+      status: "Completed",
       details: "Affiliated with Lincoln University College. Comprehensive study in IT systems, software engineering, databases, and network administration."
     },
     {
@@ -344,7 +344,7 @@ export const portfolioData: PortfolioData = {
     "Successfully managed digital marketing, SEO, and brand promotion at Kreativemandu Technologies",
     "Maintained IT operations, website, and social media campaigns at Sharon Manpower Service",
     "Managed website content, social channels, and digital records at Frontline Requirement",
-    "Completing Bachelor of Information Technology (BIT - 8th Sem) alongside completed Bachelor of Business Studies (BBS)",
+    "Completed Bachelor of Information Technology (BIT) alongside completed Bachelor of Business Studies (BBS)",
     "Extensive experience in web technologies (HTML, CSS, JS, Python, Django, React.js, MySQL, PostgreSQL)"
   ],
   whyHireMe: [
@@ -365,7 +365,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Dual Technical & Business Education",
-      desc: "Unique blend of technical information technology acumen (BIT 8th Sem) and business management principles (BBS Graduate).",
+      desc: "Unique blend of technical information technology acumen (BIT Graduate) and business management principles (BBS Graduate).",
       icon: "MessageSquare"
     }
   ]

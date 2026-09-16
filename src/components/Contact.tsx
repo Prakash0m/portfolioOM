@@ -1,7 +1,46 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, MessageCircle, Send, CheckCircle2, Copy, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Copy, Check } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+
+// Official Brand Logos
+const WhatsAppLogo = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 32 32" 
+    fill="none"
+    className={className}
+  >
+    <path fillRule="evenodd" clipRule="evenodd" d="M16 2C8.268 2 2 8.268 2 16c0 2.68.756 5.244 2.188 7.468L2.05 30l6.772-1.776A13.935 13.935 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#25D366"/>
+    <path d="M22.844 19.344c-.313-.156-1.844-.906-2.125-1.016-.281-.109-.484-.156-.688.156-.203.313-.797 1.016-.984 1.219-.188.203-.359.234-.672.078-.313-.156-1.328-.484-2.531-1.563-.938-.828-1.578-1.859-1.766-2.172-.188-.313-.016-.484.141-.641.141-.141.313-.359.469-.547.156-.188.203-.313.313-.516.109-.203.047-.391-.031-.547-.078-.156-.688-1.656-.938-2.281-.25-.609-.5-.531-.688-.531h-.594c-.203 0-.547.078-.828.391-.281.313-1.094 1.063-1.094 2.609 0 1.547 1.125 3.031 1.281 3.25.156.219 2.203 3.375 5.344 4.734.75.328 1.328.516 1.781.672.75.234 1.437.203 1.984.125.609-.094 1.844-.75 2.109-1.484.266-.734.266-1.359.188-1.484-.078-.125-.281-.203-.594-.359z" fill="#fff"/>
+  </svg>
+);
+
+const LinkedInLogo = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    className={className}
+  >
+    <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+    <path d="M7.125 5.25a1.375 1.375 0 100 2.75 1.375 1.375 0 000-2.75zm-1.25 4.5h2.5v9h-2.5v-9zm6.25 0h-2.5v9h2.5v-4.5c0-1.25 1-2.25 2.25-2.25s2.25 1 2.25 2.25v4.5h2.5v-5c0-2.5-2-4.5-4.5-4.5-1.125 0-2.125.5-2.5 1.25v-.75z" fill="#ffffff"/>
+  </svg>
+);
+
+const GitHubLogo = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="currentColor" 
+    className={`text-slate-900 ${className}`}
+  >
+    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+  </svg>
+);
 
 export default function Contact() {
   const { location, phone, email, socials } = portfolioData.personalInfo;
@@ -56,7 +95,7 @@ export default function Contact() {
     { label: 'Location', value: location, icon: MapPin, color: 'text-blue-600', bg: 'bg-blue-50 border-blue-100' },
     { label: 'Email', value: email, icon: Mail, color: 'text-emerald-600', bg: 'bg-emerald-50 border-emerald-100', href: `mailto:${email}` },
     { label: 'Phone', value: phone, icon: Phone, color: 'text-blue-600', bg: 'bg-blue-50 border-blue-100', href: `tel:${phone}` },
-    { label: 'WhatsApp', value: 'Chat Directly (+977 9808677897)', icon: MessageCircle, color: 'text-emerald-600', bg: 'bg-emerald-50 border-emerald-100', href: socials.whatsapp }
+    { label: 'WhatsApp', value: 'Chat Directly (+977 9808677897)', icon: WhatsAppLogo, color: '', bg: 'bg-emerald-50/90 border-emerald-200/80', href: socials.whatsapp }
   ];
 
   return (
@@ -152,18 +191,18 @@ export default function Contact() {
                 href={socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center space-x-2 px-4 py-3 rounded-2xl bg-white border border-slate-200/80 hover:border-blue-300 hover:bg-blue-50/50 text-slate-800 text-xs font-bold transition-all shadow-2xs"
+                className="flex-1 inline-flex items-center justify-center space-x-2.5 px-4 py-3.5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-300 hover:bg-blue-50/50 text-slate-800 text-xs font-bold transition-all shadow-2xs hover:shadow-xs group"
               >
-                <span className="text-blue-600 font-bold">in</span>
+                <LinkedInLogo size={18} className="group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span>LinkedIn Profile</span>
               </a>
               <a
                 href={socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center space-x-2 px-4 py-3 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-400 hover:bg-slate-50 text-slate-800 text-xs font-bold transition-all shadow-2xs"
+                className="flex-1 inline-flex items-center justify-center space-x-2.5 px-4 py-3.5 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 hover:bg-slate-50 text-slate-800 text-xs font-bold transition-all shadow-2xs hover:shadow-xs group"
               >
-                <span className="font-bold">⌥</span>
+                <GitHubLogo size={18} className="group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span>GitHub / Prakash0m</span>
               </a>
             </div>

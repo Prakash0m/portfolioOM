@@ -1,30 +1,37 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Send, Download, MessageCircle } from 'lucide-react';
+import { Send, Download } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import omDigitalCutout from '../assets/om_digital_cutout.png';
 
 const GithubIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
   </svg>
 );
 
 const LinkedinIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </svg>
 );
 
 const FacebookIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
   </svg>
 );
 
 const InstagramIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845a1.21 1.21 0 100-2.42 1.21 1.21 0 000 2.42z"/>
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845a1.21 1.21 0 100-2.42 1.21 1.21 0 000 2.42z" />
+  </svg>
+);
+
+const WhatsAppIcon = () => (
+  <svg className="w-4 h-4" viewBox="0 0 32 32" fill="none">
+    <path fillRule="evenodd" clipRule="evenodd" d="M16 2C8.268 2 2 8.268 2 16c0 2.68.756 5.244 2.188 7.468L2.05 30l6.772-1.776A13.935 13.935 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#25D366"/>
+    <path d="M22.844 19.344c-.313-.156-1.844-.906-2.125-1.016-.281-.109-.484-.156-.688.156-.203.313-.797 1.016-.984 1.219-.188.203-.359.234-.672.078-.313-.156-1.328-.484-2.531-1.563-.938-.828-1.578-1.859-1.766-2.172-.188-.313-.016-.484.141-.641.141-.141.313-.359.469-.547.156-.188.203-.313.313-.516.109-.203.047-.391-.031-.547-.078-.156-.688-1.656-.938-2.281-.25-.609-.5-.531-.688-.531h-.594c-.203 0-.547.078-.828.391-.281.313-1.094 1.063-1.094 2.609 0 1.547 1.125 3.031 1.281 3.25.156.219 2.203 3.375 5.344 4.734.75.328 1.328.516 1.781.672.75.234 1.437.203 1.984.125.609-.094 1.844-.75 2.109-1.484.266-.734.266-1.359.188-1.484-.078-.125-.281-.203-.594-.359z" fill="#fff"/>
   </svg>
 );
 
@@ -81,14 +88,14 @@ const METRICS_DATA: MetricItem[] = [
     frames: ['2+', '5+', '8+', '10+']
   },
   {
-    metric: '8th Sem',
-    label: 'BIT Honors',
-    sub: 'Texas College / Lincoln',
+    metric: 'Completed',
+    label: 'BIT/BBS Graduate',
+    sub: 'Lincoln/ TU',
     themeColor: '#2563eb', // Royal Blue
     themeBg: 'rgba(239, 246, 255, 0.75)',
     themeBorder: 'rgba(191, 219, 254, 0.95)',
     themeGradient: 'from-blue-400 to-indigo-500',
-    frames: ['2nd', '4th', '6th', '8th Sem']
+    frames: ['Study', 'Project', 'Defense', 'Completed']
   },
   {
     metric: 'Active',
@@ -164,13 +171,13 @@ function MetricCard({ item, idx }: { item: MetricItem; idx: number }) {
       animate={
         isAnimating
           ? {
-              borderColor: runningBorders,
-              backgroundColor: runningBgs,
-            }
+            borderColor: runningBorders,
+            backgroundColor: runningBgs,
+          }
           : {
-              borderColor: item.themeBorder,
-              backgroundColor: item.themeBg,
-            }
+            borderColor: item.themeBorder,
+            backgroundColor: item.themeBg,
+          }
       }
       onMouseEnter={() => {
         if (!isAnimating) startFastAnimation();
@@ -195,13 +202,13 @@ function MetricCard({ item, idx }: { item: MetricItem; idx: number }) {
         animate={
           isAnimating
             ? {
-                color: runningTextColors,
-                scale: [0.94, 1.1, 0.98, 1.05, 1],
-              }
+              color: runningTextColors,
+              scale: [0.94, 1.1, 0.98, 1.05, 1],
+            }
             : {
-                color: item.themeColor,
-                scale: 1,
-              }
+              color: item.themeColor,
+              scale: 1,
+            }
         }
         transition={{ duration: 0.55, ease: 'easeInOut' }}
         className="text-2xl sm:text-3xl font-extrabold flex items-center justify-center tracking-tight min-h-[36px]"
@@ -229,7 +236,7 @@ function MetricCard({ item, idx }: { item: MetricItem; idx: number }) {
 
 export default function Hero() {
   const { resumeUrl, socials } = portfolioData.personalInfo;
-  
+
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -292,10 +299,10 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-          
+
           {/* Left Column: Typography and Action Buttons matching reference style */}
           <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start z-10">
-            
+
             {/* Status Pill Badge */}
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/70 text-xs font-bold text-emerald-800 mb-6">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
@@ -318,11 +325,11 @@ export default function Hero() {
                   animate={
                     !isDeleting && displayedText === TITLES[currentTitleIndex].text
                       ? {
-                          color: TITLES[currentTitleIndex].themeColor,
-                        }
+                        color: TITLES[currentTitleIndex].themeColor,
+                      }
                       : {
-                          color: ['#f97316', '#ec4899', '#8b5cf6', '#06b6d4', TITLES[currentTitleIndex].themeColor],
-                        }
+                        color: ['#f97316', '#ec4899', '#8b5cf6', '#06b6d4', TITLES[currentTitleIndex].themeColor],
+                      }
                   }
                   transition={
                     !isDeleting && displayedText === TITLES[currentTitleIndex].text
@@ -332,7 +339,7 @@ export default function Hero() {
                 >
                   {displayedText}
                 </motion.span>
-                <span 
+                <span
                   className="inline-block w-0.5 h-6 md:h-7 ml-1 animate-pulse align-middle"
                   style={{ backgroundColor: TITLES[currentTitleIndex].themeColor }}
                 ></span>
@@ -366,7 +373,9 @@ export default function Hero() {
 
               <a
                 href={resumeUrl}
-                download
+                download="Om_Prakash_Sharma_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-full bg-white border border-slate-200 text-slate-700 font-bold text-sm hover:border-slate-400 hover:text-slate-900 transition-all shadow-xs active:scale-95"
               >
                 <Download size={16} className="text-blue-600" />
@@ -432,7 +441,7 @@ export default function Hero() {
                 className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-600 hover:text-white hover:bg-emerald-600 hover:border-emerald-600 transition-all shadow-2xs"
                 aria-label="WhatsApp"
               >
-                <MessageCircle size={16} />
+                <WhatsAppIcon />
               </a>
             </div>
 
@@ -440,13 +449,13 @@ export default function Hero() {
 
           {/* Right Column: High-Impact Prominent Circular Portrait with Interactive Depth Chips */}
           <div className="lg:col-span-6 xl:col-span-6 relative flex justify-center lg:justify-center xl:justify-end items-center py-6 pr-2 sm:pr-6 xl:pr-10">
-            
+
             {/* Decorative Dot Matrix Patterns scaled for larger circle */}
             <div className="absolute top-0 left-4 sm:left-10 lg:left-2 w-36 h-36 dot-pattern opacity-60 z-0 pointer-events-none"></div>
             <div className="absolute -bottom-6 right-2 sm:right-6 lg:-right-4 w-40 h-40 dot-pattern-blue opacity-40 z-0 pointer-events-none"></div>
 
             {/* Circular Composition Wrapper with 3D perspective and mouse tracking */}
-            <motion.div 
+            <motion.div
               className="relative z-10 cursor-pointer"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
@@ -454,9 +463,9 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              
+
               {/* Outer Glowing Gradient Ring with gentle breathing pulse */}
-              <motion.div 
+              <motion.div
                 className="absolute -inset-4 rounded-full bg-gradient-to-tr from-emerald-400/25 via-teal-300/20 to-blue-400/25 blur-lg pointer-events-none"
                 animate={{
                   scale: [1, 1.06, 1],
@@ -484,8 +493,8 @@ export default function Hero() {
               </div>
 
               {/* Floating Right Growth Badge - Digital Marketing Specialist with colorful run & theme stop */}
-              <motion.div 
-                className="hidden sm:flex absolute top-6 sm:top-8 lg:top-10 -right-4 sm:-right-6 lg:-right-8 p-2.5 px-4 rounded-2xl bg-white/95 backdrop-blur-md border shadow-xl items-center gap-2.5 z-30 cursor-pointer" 
+              <motion.div
+                className="hidden sm:flex absolute top-6 sm:top-8 lg:top-10 -right-4 sm:-right-6 lg:-right-8 p-2.5 px-4 rounded-2xl bg-white/95 backdrop-blur-md border shadow-xl items-center gap-2.5 z-30 cursor-pointer"
                 style={{ animation: 'float 6s ease-in-out infinite', animationDelay: '2.5s' }}
                 initial={{ borderColor: 'rgba(226, 232, 240, 0.9)' }}
                 animate={{
@@ -514,7 +523,7 @@ export default function Hero() {
                   <span className="text-sm">📈</span>
                 </div>
                 <div className="text-left">
-                  <motion.div 
+                  <motion.div
                     className="text-[10px] font-bold uppercase tracking-wider"
                     initial={{ color: '#64748b' }}
                     animate={{
@@ -529,15 +538,15 @@ export default function Hero() {
               </motion.div>
 
               {/* Prominent Large Circular Frame with 3D Tilt and Spring Physics */}
-              <motion.div 
+              <motion.div
                 style={{ rotateX, rotateY, transformPerspective: 1000 }}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[460px] md:h-[460px] lg:w-[490px] lg:h-[490px] xl:w-[520px] xl:h-[520px] rounded-full overflow-hidden border-2 border-emerald-400/30 shadow-[0_20px_50px_-10px_rgba(16,185,129,0.22),0_10px_30px_-5px_rgba(37,99,235,0.15)] bg-gradient-to-tr from-emerald-200/80 via-teal-50/90 to-blue-200/80 flex items-end justify-center group"
               >
-                
+
                 {/* Studio Ambient Backlight Glow pulsing smoothly behind portrait */}
-                <motion.div 
+                <motion.div
                   className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.65)_0%,rgba(52,211,153,0.25)_45%,transparent_70%)] pointer-events-none z-0"
                   animate={{
                     scale: [1, 1.12, 1],
