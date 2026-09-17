@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import profileImg from '../assets/profile.jpg';
 
-const BRAND_ROLES = ['IT Officer', 'Full Stack Developer', 'Digital Marketer'];
+const BRAND_ROLES = ['Chief Marketing Officer', 'Digital Marketer', 'Full Stack Developer', 'IT & Web Specialist'];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

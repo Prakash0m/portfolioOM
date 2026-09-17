@@ -29,7 +29,7 @@ export default function Footer() {
                 Om Prakash Sharma<span className="text-emerald-500 ml-0.5">.</span>
               </span>
               <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider">
-                IT Officer & Developer
+                Chief Marketing Officer & Tech Specialist
               </span>
             </div>
           </a>

@@ -75,13 +75,13 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: "Om Prakash Sharma",
     titles: [
-      "IT Officer",
+      "Chief Marketing Officer",
+      "Digital Marketing Specialist",
       "Website Management Specialist",
-      "Digital Marketing Professional",
-      "IT Support Specialist"
+      "Full Stack Developer"
     ],
-    bioSummary: "IT and Digital Marketing professional with hands-on experience in IT operations, website management, and social media marketing across service and technology organizations.",
-    bioDetailed: "IT and Digital Marketing professional with hands-on experience in IT operations, website management, and social media marketing across service and technology organizations. Currently working as IT Officer at IEC Group Nepal, handling IT support, website management, and digital marketing.\n\nSkilled in maintaining websites, resolving technical issues, and planning digital campaigns, with a technical background in web technologies and strong client communication. Currently completing a Bachelor of Information Technology (BIT) alongside a completed Bachelor of Business Studies (BBS).",
+    bioSummary: "Chief Marketing Officer at Kreativemandu Technologies and Tech Professional with proven expertise in digital marketing growth, brand strategy, website management, and full-stack development.",
+    bioDetailed: "Chief Marketing Officer (CMO) at Kreativemandu Technologies Pvt. Ltd. and seasoned technology professional with strong experience across digital growth strategy, brand positioning, website management, and IT operations.\n\nSkilled in spearheading high-impact digital marketing campaigns, driving SEO and lead generation, managing enterprise web portals, and bridging business strategy with technical execution. Holds a Bachelor of Information Technology (BIT) alongside a completed Bachelor of Business Studies (BBS).",
     location: "Lokanthali, Bhaktapur, Nepal",
     phone: "9808677897",
     email: "omprakash099507@gmail.com",
@@ -98,24 +98,25 @@ export const portfolioData: PortfolioData = {
   },
   experience: [
     {
-      role: "IT Officer — Marketing & Website Handling",
-      company: "IEC Group Nepal",
-      website: "iecgroupnepal.com",
-      duration: "January 2026 – Present",
+      role: "Chief Marketing Officer (CMO)",
+      company: "Kreativemandu Technologies Pvt. Ltd.",
+      website: "https://www.kreativemandu.com/",
+      location: "Kathmandu, Nepal",
+      duration: "Present",
       responsibilities: [
-        "Handle IT support and day-to-day technical operations, managing the organization's website and digital marketing activities.",
-        "Manage website updates and monitoring while planning and coordinating social media and digital marketing campaigns."
+        "Lead corporate brand strategy, digital marketing campaigns, and online growth initiatives across diverse industry clients.",
+        "Oversee technical SEO, performance marketing (Meta/Google Ads), creative content pipelines, and conversion rate optimization.",
+        "Direct client communications and digital solutions roadmap, aligning technical delivery with client business objectives."
       ]
     },
     {
-      role: "Marketing Officer",
-      company: "Kreativemandu Technologies Pvt. Ltd.",
-      website: "https://www.kreativemandu.com/",
-      location: "Kathmandu",
-      duration: "Until December 2025",
+      role: "IT & Digital Media Officer",
+      company: "ICE Schools",
+      location: "Kathmandu, Nepal",
+      duration: "1 Year",
       responsibilities: [
-        "Managed digital marketing activities and online brand promotion, planning and coordinating social media campaigns.",
-        "Supported website-related activities, SEO, and online visibility, communicating with clients on digital marketing needs."
+        "Managed school IT infrastructure, portal operations, and digital communication systems for students and faculty.",
+        "Spearheaded multimedia content, promotional video production, and social media campaigns driving institutional brand reach."
       ]
     },
     {
@@ -272,7 +273,7 @@ export const portfolioData: PortfolioData = {
       link: "https://www.kreativemandu.com/",
       category: "business",
       featured: true,
-      badge: "Featured Live"
+      badge: "CMO Leadership"
     },
     {
       title: "Sharon HR Services Portal",
@@ -285,14 +286,13 @@ export const portfolioData: PortfolioData = {
       badge: "Featured Live"
     },
     {
-      title: "IEC Group Digital Portal",
-      subtitle: "Corporate Website & Campaign Hub",
-      description: "Managing website updates, IT operations, and coordinated digital marketing campaigns for IEC Group Nepal.",
-      tech: ["CMS", "Web Administration", "SEO", "Google Workspace", "Meta Ads"],
-      link: "https://iecgroupnepal.com",
+      title: "ICE Schools Digital Portal & Media",
+      subtitle: "Institutional Web & Media Operations",
+      description: "Administered institutional web portal updates, technical infrastructure, and digital multimedia campaigns driving admissions and brand engagement.",
+      tech: ["Web Administration", "Digital Media", "Video Production", "IT Infrastructure", "SEO"],
       category: "business",
       featured: true,
-      badge: "Active Employer"
+      badge: "Institutional Media"
     },
     {
       title: "Full Stack Web Application",
@@ -315,33 +315,33 @@ export const portfolioData: PortfolioData = {
   ],
   services: [
     {
-      title: "IT Support & Technical Operations",
-      description: "Comprehensive IT support, computer troubleshooting, software installation and configuration, network troubleshooting, and digital file management."
+      title: "Chief Marketing Strategy & Brand Growth",
+      description: "Comprehensive brand strategy, market positioning, conversion optimization, client growth roadmaps, and full-spectrum digital marketing leadership."
     },
     {
-      title: "Website Administration & Maintenance",
-      description: "End-to-end website management, regular content updates, continuous monitoring, performance troubleshooting, and CMS administration."
+      title: "Social Media Marketing & Campaign Management",
+      description: "Planning and coordinating multi-platform social media campaigns, high-converting Meta Ads, content strategy, and active audience engagement."
+    },
+    {
+      title: "Search Engine Optimization (SEO) & Visibility",
+      description: "Optimizing website SEO, improving organic search rankings, keyword strategies, technical audits, and expanding online digital presence."
     },
     {
       title: "Website Management & Development",
       description: "Building, maintaining, and enhancing responsive websites and web applications using HTML, CSS, JavaScript, React.js, Python, and Django."
     },
     {
-      title: "Social Media Marketing & Management",
-      description: "Planning and coordinating multi-platform social media campaigns, content strategy, brand promotion, and active audience engagement."
+      title: "IT Support & Technical Operations",
+      description: "Comprehensive IT support, computer troubleshooting, software installation and configuration, network troubleshooting, and digital file management."
     },
     {
-      title: "SEO & Online Brand Promotion",
-      description: "Optimizing website SEO, improving search engine rankings, increasing digital visibility, and executing online brand growth initiatives."
-    },
-    {
-      title: "Lead Generation & Campaign Management",
-      description: "Formulating high-converting digital marketing campaigns, target audience segmentation, and lead generation pipelines for business growth."
+      title: "Lead Generation & Performance Marketing",
+      description: "Formulating high-converting digital marketing funnels, target audience segmentation, and lead generation pipelines for rapid business growth."
     }
   ],
   achievements: [
-    "Currently IT Officer at IEC Group Nepal handling IT support, website management, and digital marketing",
-    "Successfully managed digital marketing, SEO, and brand promotion at Kreativemandu Technologies",
+    "Chief Marketing Officer at Kreativemandu Technologies driving brand strategy, SEO, and client growth",
+    "Completed 1 Year at ICE Schools managing IT systems, digital media, and social outreach",
     "Maintained IT operations, website, and social media campaigns at Sharon Manpower Service",
     "Managed website content, social channels, and digital records at Frontline Requirement",
     "Completed Bachelor of Information Technology (BIT) alongside completed Bachelor of Business Studies (BBS)",
@@ -349,19 +349,19 @@ export const portfolioData: PortfolioData = {
   ],
   whyHireMe: [
     {
-      title: "IT Operations & Technical Support",
-      desc: "Proven track record in IT operations, computer/network troubleshooting, software installation, and seamless technical administration.",
-      icon: "Code"
+      title: "Marketing Leadership & Brand Growth",
+      desc: "Proven track record as Chief Marketing Officer delivering high-impact brand strategies, SEO dominance, and client revenue growth.",
+      icon: "DollarSign"
     },
     {
       title: "Website Management & Development",
-      desc: "Experienced in managing websites, CMS administration, and hands-on development using React.js, Python, and Django.",
-      icon: "TrendingUp"
+      desc: "Experienced in managing enterprise websites, CMS administration, and hands-on full-stack development with React.js, Python, and Django.",
+      icon: "Code"
     },
     {
-      title: "Digital Marketing & Brand Growth",
-      desc: "Skilled in social media management, SEO optimization, online brand promotion, and campaign lead generation.",
-      icon: "DollarSign"
+      title: "Digital Campaigns & Performance Ads",
+      desc: "Skilled in social media management, multi-channel ad campaigns (Meta/Google), funnel design, and measurable lead generation.",
+      icon: "TrendingUp"
     },
     {
       title: "Dual Technical & Business Education",

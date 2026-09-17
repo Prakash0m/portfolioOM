@@ -8,18 +8,18 @@ export default function About() {
   const paragraphs = bioDetailed.split('\n\n');
 
   const stats = [
-    { label: 'Current Role', value: 'IT Officer', icon: Briefcase, color: 'text-emerald-600', bg: 'bg-emerald-50 border-emerald-100' },
+    { label: 'Current Role', value: 'CMO', icon: Briefcase, color: 'text-emerald-600', bg: 'bg-emerald-50 border-emerald-100' },
     { label: 'Academics', value: 'BIT & BBS', icon: GraduationCap, color: 'text-blue-600', bg: 'bg-blue-50 border-blue-100' },
     { label: 'Organizations', value: '4 Roles', icon: Users, color: 'text-emerald-600', bg: 'bg-emerald-50 border-emerald-100' },
-    { label: 'IT & Web Ops', value: 'Hands-on', icon: Award, color: 'text-blue-600', bg: 'bg-blue-50 border-blue-100' }
+    { label: 'Marketing & Tech', value: 'Leadership', icon: Award, color: 'text-blue-600', bg: 'bg-blue-50 border-blue-100' }
   ];
 
   const badges = [
-    { text: 'IT Operations & Support', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
-    { text: 'Website Management & CMS', color: 'bg-blue-50 text-blue-800 border-blue-200' },
-    { text: 'Digital Marketing & SEO', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+    { text: 'Chief Marketing Strategy', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+    { text: 'Digital Campaigns & SEO', color: 'bg-blue-50 text-blue-800 border-blue-200' },
+    { text: 'Website Management & CMS', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
     { text: 'Web Tech (React / Django)', color: 'bg-blue-50 text-blue-800 border-blue-200' },
-    { text: 'Network & Hardware Support', color: 'bg-slate-100 text-slate-800 border-slate-200' },
+    { text: 'IT Operations & Support', color: 'bg-slate-100 text-slate-800 border-slate-200' },
   ];
 
   return (
@@ -85,7 +85,7 @@ export default function About() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-6 flex items-center">
               <span className="w-2 h-7 bg-emerald-500 rounded-full mr-3.5"></span>
-              IT Operations, Website Management & Digital Campaigns
+              Marketing Leadership, Brand Growth & Web Systems
             </h3>
             
             <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed mb-8">

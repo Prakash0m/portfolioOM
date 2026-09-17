@@ -43,22 +43,22 @@ interface TitleConfig {
 
 const TITLES: TitleConfig[] = [
   {
-    text: "Digital Marketing Specialist",
+    text: "Chief Marketing Officer",
     themeColor: "#2563eb",
     themeGradient: "from-blue-600 to-cyan-500",
   },
   {
-    text: "Full Stack Python Developer",
+    text: "Digital Marketing Specialist",
     themeColor: "#059669",
     themeGradient: "from-emerald-600 to-teal-500",
   },
   {
-    text: "IT Officer & Web Specialist",
+    text: "Full Stack Python Developer",
     themeColor: "#0d9488",
     themeGradient: "from-teal-600 to-emerald-500",
   },
   {
-    text: "Software Engineer",
+    text: "Website Management Specialist",
     themeColor: "#4f46e5",
     themeGradient: "from-indigo-600 to-blue-500",
   },
@@ -99,8 +99,8 @@ const METRICS_DATA: MetricItem[] = [
   },
   {
     metric: 'Active',
-    label: 'IT Officer',
-    sub: 'IEC Group Nepal',
+    label: 'Chief Marketing Officer',
+    sub: 'Kreativemandu Tech',
     themeColor: '#059669', // Emerald with live pulse
     themeBg: 'rgba(236, 253, 245, 0.85)',
     themeBorder: 'rgba(110, 231, 183, 1)',
@@ -307,7 +307,7 @@ export default function Hero() {
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/70 text-xs font-bold text-emerald-800 mb-6">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
               <span className="w-2 h-2 rounded-full bg-emerald-500 -ml-4"></span>
-              <span>Available for IT Operations & Digital Roles</span>
+              <span>Available for CMO, Digital Growth & Tech Roles</span>
             </div>
 
             {/* Main Greeting - Reference Typography Style */}
@@ -597,8 +597,8 @@ export default function Hero() {
                 <div className="flex items-center gap-2.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   <div className="text-left">
-                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">IT Officer — Marketing & Website</div>
-                    <div className="text-xs sm:text-sm font-bold text-slate-900">IEC Group Nepal</div>
+                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Chief Marketing Officer (CMO)</div>
+                    <div className="text-xs sm:text-sm font-bold text-slate-900">Kreativemandu Technologies</div>
                   </div>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
