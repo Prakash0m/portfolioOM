@@ -41,7 +41,7 @@ export default function WhyHireMe() {
             Value Proposition
           </span>
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900">
-            Why Work With Me?
+            Why Work With Om Prakash Sharma?
           </h2>
           <div className="w-12 h-1 bg-emerald-500 rounded-full md:mx-auto mt-4"></div>
         </div>

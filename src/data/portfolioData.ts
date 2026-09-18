@@ -75,19 +75,20 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: "Om Prakash Sharma",
     titles: [
-      "Chief Marketing Officer",
-      "Digital Marketing Specialist",
+      "IT Officer",
+      "Web Developer",
       "Website Management Specialist",
-      "Full Stack Developer"
+      "Digital Marketing Specialist",
+      "Chief Marketing Officer"
     ],
-    bioSummary: "Chief Marketing Officer at Kreativemandu Technologies and Tech Professional with proven expertise in digital marketing growth, brand strategy, website management, and full-stack development.",
-    bioDetailed: "Chief Marketing Officer (CMO) at Kreativemandu Technologies Pvt. Ltd. and seasoned technology professional with strong experience across digital growth strategy, brand positioning, website management, and IT operations.\n\nSkilled in spearheading high-impact digital marketing campaigns, driving SEO and lead generation, managing enterprise web portals, and bridging business strategy with technical execution. Holds a Bachelor of Information Technology (BIT) alongside a completed Bachelor of Business Studies (BBS).",
+    bioSummary: "Om Prakash Sharma is an IT Officer, Web Developer, and Digital Marketing professional based in Nepal, specializing in website management, IT operations, full-stack development, and SEO.",
+    bioDetailed: "Om Prakash Sharma is an IT Officer, Web Developer, and Digital Marketing professional based in Lokanthali, Bhaktapur, Nepal. He serves as Chief Marketing Officer (CMO) at Kreativemandu Technologies Pvt. Ltd., bringing extensive hands-on experience in IT operations, website management, full-stack web development, and digital marketing campaigns across organizations in Nepal.\n\nSkilled in building responsive web applications, managing enterprise CMS platforms, technical SEO, and IT support, Om combines technical software engineering (React.js, TypeScript, Python, Django, REST APIs, PostgreSQL, MySQL) with strategic digital marketing leadership. He holds a Bachelor of Information Technology (BIT) and a Bachelor of Business Studies (BBS).",
     location: "Lokanthali, Bhaktapur, Nepal",
     phone: "9808677897",
     email: "omprakash099507@gmail.com",
     whatsapp: "+9779808677897",
     resumeUrl: "/resume.pdf",
-    portfolioUrl: "https://portfolio-om-nine.vercel.app",
+    portfolioUrl: "https://www.omprakashsharma.info.np",
     socials: {
       github: "https://github.com/Prakash0m",
       linkedin: "https://linkedin.com/in/prakashomsharma",
@@ -306,7 +307,7 @@ export const portfolioData: PortfolioData = {
       subtitle: "Modern Web Presence",
       description: "Fast, responsive web portfolio built with React and Vite showcasing career milestones and tech expertise.",
       tech: ["React.js", "TypeScript", "Tailwind CSS", "Vercel"],
-      link: "https://portfolio-om-nine.vercel.app",
+      link: "https://www.omprakashsharma.info.np",
       github: "https://github.com/Prakash0m",
       category: "react",
       featured: true,

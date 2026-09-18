@@ -43,22 +43,22 @@ interface TitleConfig {
 
 const TITLES: TitleConfig[] = [
   {
-    text: "Chief Marketing Officer",
-    themeColor: "#2563eb",
-    themeGradient: "from-blue-600 to-cyan-500",
-  },
-  {
-    text: "Digital Marketing Specialist",
+    text: "IT Officer & Web Specialist",
     themeColor: "#059669",
     themeGradient: "from-emerald-600 to-teal-500",
   },
   {
-    text: "Full Stack Python Developer",
+    text: "Web Developer (React & Python)",
     themeColor: "#0d9488",
     themeGradient: "from-teal-600 to-emerald-500",
   },
   {
-    text: "Website Management Specialist",
+    text: "Digital Marketing Specialist",
+    themeColor: "#2563eb",
+    themeGradient: "from-blue-600 to-cyan-500",
+  },
+  {
+    text: "Chief Marketing Officer",
     themeColor: "#4f46e5",
     themeGradient: "from-indigo-600 to-blue-500",
   },
@@ -310,11 +310,11 @@ export default function Hero() {
               <span>Available for CMO, Digital Growth & Tech Roles</span>
             </div>
 
-            {/* Main Greeting - Reference Typography Style */}
+            {/* Main Greeting - Primary H1 for Personal Brand SEO */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.08] mb-4">
               Hello,<br />
               <span>I'm </span>
-              <span className="text-slate-900">Om Prakash</span>
+              <span className="text-slate-900">Om Prakash Sharma</span>
             </h1>
 
             {/* Highlighted Role with colorful running animation and theme stopping */}
@@ -577,7 +577,7 @@ export default function Hero() {
                 {/* Portrait Cutout with Organic Breathing/Floating & Mouse Parallax */}
                 <motion.img
                   src={omDigitalCutout}
-                  alt="Om Prakash Sharma"
+                  alt="Om Prakash Sharma - IT Officer, Web Developer and Digital Marketing Professional in Nepal"
                   style={{ x: parallaxX, y: parallaxY }}
                   animate={{
                     y: [0, -7, 0],

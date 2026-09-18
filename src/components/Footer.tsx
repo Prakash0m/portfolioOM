@@ -20,7 +20,10 @@ export default function Footer() {
             <div className="relative w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500 via-teal-400 to-blue-500 flex-shrink-0 shadow-xs group-hover:scale-105 transition-transform">
               <img
                 src={profileImg}
-                alt="Om Prakash Sharma"
+                alt="Om Prakash Sharma - IT Officer and Web Developer"
+                loading="lazy"
+                width={32}
+                height={32}
                 className="w-full h-full rounded-full object-cover"
               />
             </div>

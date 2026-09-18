@@ -51,6 +51,8 @@ export default function Navbar() {
               <img
                 src={profileImg}
                 alt="Om Prakash Sharma"
+                width={40}
+                height={40}
                 className="w-full h-full rounded-full object-cover"
               />
             </div>

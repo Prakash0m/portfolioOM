@@ -37,7 +37,7 @@ export default function About() {
             About Me
           </span>
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900">
-            Professional Background
+            About Om Prakash Sharma
           </h2>
           <div className="w-12 h-1 bg-emerald-500 rounded-full md:mx-auto mt-4"></div>
         </div>
@@ -61,7 +61,10 @@ export default function About() {
               <div className="relative w-full h-80 rounded-2xl overflow-hidden bg-slate-100">
                 <img 
                   src={profileImg} 
-                  alt="Om Prakash Sharma" 
+                  alt="Om Prakash Sharma - IT Officer, Web Developer and Digital Marketing Professional from Nepal" 
+                  loading="lazy"
+                  width={384}
+                  height={320}
                   className="w-full h-full object-cover object-top filter contrast-[1.02] group-hover:scale-108 transition-transform duration-700 ease-out" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
@@ -85,7 +88,7 @@ export default function About() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-6 flex items-center">
               <span className="w-2 h-7 bg-emerald-500 rounded-full mr-3.5"></span>
-              Marketing Leadership, Brand Growth & Web Systems
+              IT Officer, Web Developer & Digital Marketing Professional
             </h3>
             
             <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed mb-8">

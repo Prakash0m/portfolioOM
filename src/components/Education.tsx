@@ -52,7 +52,10 @@ export default function Education() {
                     <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex items-center justify-center p-2 group-hover:scale-105 group-hover:shadow-md group-hover:border-blue-200 transition-all duration-300 flex-shrink-0">
                       <img
                         src={getUniversityLogo(edu)}
-                        alt={edu.university || 'University'}
+                        alt={`${edu.university || 'University'} - ${edu.degree}`}
+                        loading="lazy"
+                        width={56}
+                        height={56}
                         className="w-full h-full object-contain"
                       />
                     </div>
