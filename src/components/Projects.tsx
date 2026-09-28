@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Folder, Globe } from 'lucide-react';
+import { ArrowUpRight, Folder, Globe, Users, ExternalLink, Sparkles } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
 
@@ -16,16 +16,23 @@ export default function Projects() {
 
   const categories = [
     { id: 'all', name: 'All Works' },
+    { id: 'team', name: '🤝 Client & Team Works' },
     { id: 'featured', name: '⭐ Featured Live' },
-    { id: 'fullstack', name: 'Web & Tech' },
-    { id: 'business', name: 'Portals & Marketing' },
-    { id: 'react', name: 'React.js' },
+    { id: 'ecommerce', name: '🛒 E-Commerce' },
+    { id: 'business', name: '🏢 Portals & Corporate' },
+    { id: 'react', name: '⚛️ React.js' },
   ];
 
   const filteredProjects = activeCategory === 'all'
     ? projects
+    : activeCategory === 'team'
+    ? projects.filter(p => p.isTeamClient)
     : activeCategory === 'featured'
     ? projects.filter(p => p.featured)
+    : activeCategory === 'ecommerce'
+    ? projects.filter(p => p.category === 'ecommerce' || p.tech.some(t => t.toLowerCase().includes('commerce')))
+    : activeCategory === 'business'
+    ? projects.filter(p => p.category === 'business')
     : projects.filter(p => p.category === activeCategory || p.tech.some(t => t.toLowerCase().includes(activeCategory)));
 
   return (
@@ -39,13 +46,13 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
           <div>
             <span className="text-xs font-bold tracking-widest uppercase text-emerald-600 block mb-2">
-              Portfolio
+              Portfolio & Client Delivery
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900">
-              Featured Projects
+              Featured Client & Team Works
             </h2>
             <div className="w-12 h-1 bg-emerald-500 rounded-full mt-4"></div>
           </div>
@@ -68,6 +75,34 @@ export default function Projects() {
           </div>
         </div>
 
+        {/* Client Management & Team Delivery Banner */}
+        <div className="mb-10 p-5 rounded-2xl bg-gradient-to-r from-emerald-50/90 via-teal-50/70 to-blue-50/80 border border-emerald-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+              <Users size={20} />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-sm md:text-base font-bold text-slate-900">
+                  Client Account Management & Team Co-Development
+                </h3>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded-md">
+                  <Sparkles size={11} /> 100% Live
+                </span>
+              </div>
+              <p className="text-xs text-slate-600 mt-0.5">
+                Handled direct client relations, requirement roadmapping, and co-developed production-ready platforms with dedicated technical teams across e-commerce, healthcare, security, and financial consultancy.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white text-emerald-800 border border-emerald-200 shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              5+ Commercial Deployments
+            </span>
+          </div>
+        </div>
+
         {/* Projects Grid */}
         <motion.div
           layout
@@ -86,7 +121,7 @@ export default function Projects() {
               >
                 <div>
                   {/* Card Header: Folder, Live Badge, and Action Buttons */}
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2.5">
                       <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 group-hover:scale-105 transition-transform">
                         <Folder size={20} />
@@ -129,8 +164,16 @@ export default function Projects() {
                     </div>
                   </div>
 
+                  {/* Client Role & Team Collaboration Badge */}
+                  {project.isTeamClient && (
+                    <div className="mb-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50/90 text-emerald-800 border border-emerald-200/80">
+                      <Users size={12} className="text-emerald-600 shrink-0" />
+                      <span>{project.clientRole || "Client Handled & Developed with Team"}</span>
+                    </div>
+                  )}
+
                   {/* Subtitle & Title */}
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 block mb-1.5">
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 block mb-1">
                     {project.subtitle}
                   </span>
                   <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
@@ -143,31 +186,46 @@ export default function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-emerald-50/70 hover:bg-emerald-100/80 border border-emerald-200/70 px-2.5 py-1 rounded-lg mb-3 transition-colors group/link"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-200/80 px-2.5 py-1 rounded-lg mb-3 transition-colors group/link"
                     >
-                      <Globe size={12} className="text-emerald-600" />
-                      <span className="truncate max-w-[200px]">
+                      <Globe size={12} className="text-emerald-600 shrink-0" />
+                      <span className="truncate max-w-[210px] font-mono text-[11px]">
                         {project.link.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
                       </span>
-                      <ArrowUpRight size={12} className="opacity-70 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                      <ArrowUpRight size={12} className="opacity-70 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform shrink-0" />
                     </a>
                   )}
 
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-5">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Tech Tags */}
-                <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/70 text-slate-600 text-[11px] font-bold"
+                <div>
+                  {/* Tech Tags */}
+                  <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-1.5 mb-4">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/70 text-slate-600 text-[11px] font-bold"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Direct Visit Button */}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 bg-slate-900 text-white hover:bg-emerald-600 transition-all duration-200 group/btn shadow-xs cursor-pointer"
                     >
-                      {t}
-                    </span>
-                  ))}
+                      <span>Visit Live Website</span>
+                      <ExternalLink size={13} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -178,3 +236,4 @@ export default function Projects() {
     </section>
   );
 }
+

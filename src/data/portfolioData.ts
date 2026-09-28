@@ -5,10 +5,13 @@ export interface Project {
   tech: string[];
   link?: string;
   github?: string;
-  category: 'react' | 'django' | 'fullstack' | 'business' | 'other';
+  category: 'react' | 'django' | 'fullstack' | 'business' | 'ecommerce' | 'other';
   featured?: boolean;
   badge?: string;
+  clientRole?: string;
+  isTeamClient?: boolean;
 }
+
 
 export interface Experience {
   role: string;
@@ -257,6 +260,66 @@ export const portfolioData: PortfolioData = {
   ],
   projects: [
     {
+      title: "Performance House",
+      subtitle: "Full E-Commerce Store & Supplements",
+      description: "Full-scale commercial e-commerce platform for fitness & sports nutritional supplements. Handled direct client relations and spearheaded full-cycle development with the team — integrating product catalog, shopping cart, dynamic checkout flow, inventory tracking, and payment processing.",
+      tech: ["E-Commerce", "Web Development", "Cart & Checkout", "Inventory System", "Payment Flow", "Responsive UI"],
+      link: "http://performancehouse.com.np/",
+      category: "ecommerce",
+      featured: true,
+      badge: "⭐ Client Live • E-Commerce",
+      clientRole: "Handled Client & Developed with Team",
+      isTeamClient: true
+    },
+    {
+      title: "Ganapati Consultancy",
+      subtitle: "Accounting & Tax Advisory Firm",
+      description: "Corporate web platform for a premier accounting, auditing, and tax advisory consultancy. Handled end-to-end client consultation and co-developed with the team — structured around financial consulting services, audit workflows, corporate tax consultation, and lead inquiry channels.",
+      tech: ["Corporate Portal", "Accounting Systems", "Tax Advisory", "Lead Inquiries", "SEO Architecture", "Responsive UI"],
+      link: "https://ganapaticonsultancy.com.np/",
+      category: "business",
+      featured: true,
+      badge: "⭐ Client Live • Accounting",
+      clientRole: "Handled Client & Developed with Team",
+      isTeamClient: true
+    },
+    {
+      title: "Kreativemandu Technologies",
+      subtitle: "My Company • Digital Agency & IT Solutions",
+      description: "Official company portal for Kreativemandu Technologies, where I serve as Chief Marketing Officer (CMO). Handled client onboarding and led website development with our team — covering digital branding, full-stack web solutions, technical SEO architecture, and conversion growth funnels.",
+      tech: ["Digital Agency", "Brand Strategy", "Web Development", "Technical SEO", "Growth Funnels", "UI/UX"],
+      link: "https://kreativemandu.com/",
+      category: "business",
+      featured: true,
+      badge: "⭐ My Company • Official",
+      clientRole: "Co-Founder/CMO & Team Lead",
+      isTeamClient: true
+    },
+    {
+      title: "Seven Star Security Services",
+      subtitle: "Security & Facility Management Portal",
+      description: "Official web portal for an authorized commercial security guard and facility management services provider. Handled direct client coordination and developed with the team — presenting guarding personnel tiers, VIP bodyguard deployments, event security contracts, and rapid response inquiry forms.",
+      tech: ["Corporate Website", "Security Services", "Client Portal", "Rapid Contact", "Modern UI", "SEO"],
+      link: "https://sevenstarsecurity.com.np/",
+      category: "business",
+      featured: true,
+      badge: "⭐ Client Live • Security",
+      clientRole: "Handled Client & Developed with Team",
+      isTeamClient: true
+    },
+    {
+      title: "Riddhi Siddhi Healthcare",
+      subtitle: "Medical & Healthcare Services Portal",
+      description: "Comprehensive healthcare clinic and medical diagnostic web platform. Handled complete client requirements and developed with the team — featuring specialized clinical departments, medical doctor directories, diagnostic service overviews, and online patient appointment inquiries.",
+      tech: ["Healthcare Portal", "Medical Clinic", "Doctor Directory", "Appointment Booking", "Responsive Layout", "SEO"],
+      link: "https://www.riddhisiddhihealthcare.com.np/",
+      category: "business",
+      featured: true,
+      badge: "⭐ Client Live • Healthcare",
+      clientRole: "Handled Client & Developed with Team",
+      isTeamClient: true
+    },
+    {
       title: "Frontline Recruitment AI Platform",
       subtitle: "Global Recruitment & Talent Platform",
       description: "Official global AI recruitment and overseas talent acquisition platform providing automated job matching, candidate portal, and operational management.",
@@ -264,17 +327,9 @@ export const portfolioData: PortfolioData = {
       link: "https://frontlinerecruitment.ai/en",
       category: "fullstack",
       featured: true,
-      badge: "Featured Live"
-    },
-    {
-      title: "Kreativemandu Technologies",
-      subtitle: "Digital Agency & Growth Portal",
-      description: "Official digital marketing agency portal driving client brand campaigns, technical SEO, social media growth strategies, and creative web solutions.",
-      tech: ["Digital Marketing", "SEO", "Brand Strategy", "Content Planning", "Analytics"],
-      link: "https://www.kreativemandu.com/",
-      category: "business",
-      featured: true,
-      badge: "CMO Leadership"
+      badge: "Featured Live",
+      clientRole: "Operations & Web Management",
+      isTeamClient: true
     },
     {
       title: "Sharon HR Services Portal",
@@ -284,7 +339,20 @@ export const portfolioData: PortfolioData = {
       link: "https://sharonhrservices.com/",
       category: "business",
       featured: true,
-      badge: "Featured Live"
+      badge: "Featured Live",
+      clientRole: "Web Administration & IT Operations",
+      isTeamClient: true
+    },
+    {
+      title: "Live Portfolio Showcase",
+      subtitle: "Modern Web Presence",
+      description: "Fast, responsive web portfolio built with React and Vite showcasing career milestones, live client works, verified education, and tech expertise.",
+      tech: ["React.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      link: "https://www.omprakashsharma.info.np",
+      github: "https://github.com/Prakash0m",
+      category: "react",
+      featured: true,
+      badge: "Live Portfolio"
     },
     {
       title: "ICE Schools Digital Portal & Media",
@@ -292,7 +360,7 @@ export const portfolioData: PortfolioData = {
       description: "Administered institutional web portal updates, technical infrastructure, and digital multimedia campaigns driving admissions and brand engagement.",
       tech: ["Web Administration", "Digital Media", "Video Production", "IT Infrastructure", "SEO"],
       category: "business",
-      featured: true,
+      featured: false,
       badge: "Institutional Media"
     },
     {
@@ -301,20 +369,13 @@ export const portfolioData: PortfolioData = {
       description: "Interactive web application featuring secure user authentication, relational database management, and responsive UI.",
       tech: ["Python", "Django", "React.js", "PostgreSQL", "Tailwind CSS"],
       category: "fullstack"
-    },
-    {
-      title: "Live Portfolio Showcase",
-      subtitle: "Modern Web Presence",
-      description: "Fast, responsive web portfolio built with React and Vite showcasing career milestones and tech expertise.",
-      tech: ["React.js", "TypeScript", "Tailwind CSS", "Vercel"],
-      link: "https://www.omprakashsharma.info.np",
-      github: "https://github.com/Prakash0m",
-      category: "react",
-      featured: true,
-      badge: "Live Portfolio"
     }
   ],
   services: [
+    {
+      title: "Client Project Management & Team Web Delivery",
+      description: "End-to-end client consultation, requirement gathering, and leading technical teams to develop and deploy high-converting websites, e-commerce stores, and corporate portals."
+    },
     {
       title: "Chief Marketing Strategy & Brand Growth",
       description: "Comprehensive brand strategy, market positioning, conversion optimization, client growth roadmaps, and full-spectrum digital marketing leadership."
@@ -341,6 +402,7 @@ export const portfolioData: PortfolioData = {
     }
   ],
   achievements: [
+    "Handled client accounts & co-developed 5+ live commercial platforms with team: Performance House (E-Commerce), Ganapati Consultancy, Kreativemandu, Seven Star Security, and Riddhi Siddhi Healthcare",
     "Chief Marketing Officer at Kreativemandu Technologies driving brand strategy, SEO, and client growth",
     "Completed 1 Year at ICE Schools managing IT systems, digital media, and social outreach",
     "Maintained IT operations, website, and social media campaigns at Sharon Manpower Service",
