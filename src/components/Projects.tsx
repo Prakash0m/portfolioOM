@@ -155,9 +155,27 @@ export default function Projects() {
 
                   {/* Role Note */}
                   {project.clientRole && (
-                    <p className="text-xs text-slate-500 mb-4">
-                      <span className="font-medium text-slate-700">Role:</span> {project.clientRole}
-                    </p>
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-3">
+                      <span className="font-semibold text-slate-800">Role:</span>
+                      <span className="text-slate-600">{project.clientRole}</span>
+                    </div>
+                  )}
+
+                  {/* Work Delivered with Team */}
+                  {project.teamWork && project.teamWork.length > 0 && (
+                    <div className="mb-4 p-3 rounded-xl bg-slate-50/90 border border-slate-200/60">
+                      <span className="text-[11px] font-bold text-slate-800 uppercase tracking-wider block mb-2">
+                        Key Work Delivered with Team:
+                      </span>
+                      <ul className="space-y-1.5">
+                        {project.teamWork.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-xs text-slate-600 leading-snug">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
                 </div>
 

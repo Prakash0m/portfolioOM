@@ -10,7 +10,9 @@ export interface Project {
   badge?: string;
   clientRole?: string;
   isTeamClient?: boolean;
+  teamWork?: string[];
 }
+
 
 
 export interface Experience {
@@ -269,7 +271,13 @@ export const portfolioData: PortfolioData = {
       featured: true,
       badge: "E-Commerce",
       clientRole: "Client Account & Team Development",
-      isTeamClient: true
+      isTeamClient: true,
+      teamWork: [
+        "Gathered client product requirements & established multi-category catalog",
+        "Co-developed responsive shopping cart, dynamic checkout & payment flow",
+        "Built inventory tracking & automated customer order notification pipeline",
+        "Optimized mobile page speed, caching, and on-page product SEO"
+      ]
     },
     {
       title: "Ganapati Consultancy",
@@ -281,7 +289,13 @@ export const portfolioData: PortfolioData = {
       featured: true,
       badge: "Accounting & Tax",
       clientRole: "Client Account & Team Development",
-      isTeamClient: true
+      isTeamClient: true,
+      teamWork: [
+        "Scoped client service offerings in financial audits, tax planning, and corporate compliance",
+        "Engineered client appointment scheduling & consultation inquiry forms",
+        "Structured accounting resource hub with downloadable advisory guides",
+        "Delivered mobile-responsive interface with fast local search engine indexing"
+      ]
     },
     {
       title: "Kreativemandu Technologies",
@@ -293,7 +307,13 @@ export const portfolioData: PortfolioData = {
       featured: true,
       badge: "Digital Agency",
       clientRole: "CMO & Technical Lead",
-      isTeamClient: true
+      isTeamClient: true,
+      teamWork: [
+        "Directed agency brand strategy, client acquisition pipeline, and service roadmap",
+        "Led engineering and creative teams in developing the official agency portal",
+        "Implemented high-converting lead capture funnels & technical SEO architecture",
+        "Established client onboarding workflows and digital marketing service packages"
+      ]
     },
     {
       title: "Seven Star Security Services",
@@ -305,7 +325,13 @@ export const portfolioData: PortfolioData = {
       featured: true,
       badge: "Security Services",
       clientRole: "Client Account & Team Development",
-      isTeamClient: true
+      isTeamClient: true,
+      teamWork: [
+        "Consulted with company leadership to map security tiers and operational services",
+        "Built detailed showcases for corporate guarding, VIP bodyguarding, and event security",
+        "Developed emergency contact and fast contract quotation inquiry forms",
+        "Optimized website for mobile users and regional corporate client search"
+      ]
     },
     {
       title: "Riddhi Siddhi Healthcare",
@@ -317,7 +343,13 @@ export const portfolioData: PortfolioData = {
       featured: true,
       badge: "Healthcare",
       clientRole: "Client Account & Team Development",
-      isTeamClient: true
+      isTeamClient: true,
+      teamWork: [
+        "Collaborated with clinic administration to structure clinical specialties & services",
+        "Built searchable doctor directory with department schedules and consultation hours",
+        "Implemented patient appointment inquiry system and diagnostic test rate cards",
+        "Delivered accessible, cross-browser responsive layout with optimized load times"
+      ]
     },
     {
       title: "Frontline Recruitment AI Platform",
@@ -329,7 +361,12 @@ export const portfolioData: PortfolioData = {
       featured: true,
       badge: "Talent Platform",
       clientRole: "Operations & Web Management",
-      isTeamClient: true
+      isTeamClient: true,
+      teamWork: [
+        "Coordinated candidate record systems and operational recruitment pipelines",
+        "Managed website CMS, overseas job listings, and regulatory compliance updates",
+        "Collaborated on talent portal interfaces and international visibility SEO"
+      ]
     },
     {
       title: "Sharon HR Services Portal",
@@ -341,7 +378,12 @@ export const portfolioData: PortfolioData = {
       featured: true,
       badge: "HR Services",
       clientRole: "Web & IT Operations",
-      isTeamClient: true
+      isTeamClient: true,
+      teamWork: [
+        "Administered international job posting boards and applicant record pipelines",
+        "Managed technical site maintenance, updates, and domain server configurations",
+        "Executed integrated digital media campaigns driving overseas recruitment drives"
+      ]
     },
     {
       title: "Live Portfolio Showcase",
